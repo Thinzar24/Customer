@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SearchLatName</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container">
+
+        <h1 class="text-center">Search Last Name</h1>
+        <div class="col-md-6 col-md-offset-3">
+            <form th:action="@{/process}" method="post" action="#">
+    <!--            <div>Enter a complete or partial <span class="text-success">course</span> to search for </div>-->
+                <label>Enter Last Name: </label><input type="text" name="lastname"/>
+                <input type="submit" text="Submit"/>
+            </form>
+        </div>
+
+        <table class="table">
+          <thead>
+      <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zipcode</th>
+
+          </tr>
+      </thead>
+            <tbody>
+            <tr th:each="list : ${listResult}">
+                    <td th:text="${list.firstname}"></td>
+                    <td th:text="${list.lastname}"></td>
+                    <td th:text="${list.streetaddress}"></td>
+                    <td th:text="${list.city}"></td>
+                    <td th:text="${list.state}"></td>
+                    <td th:text="${list.zipcode}"></td>
+                </tr>
+        </tbody>
+        </table>
+
+</div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
